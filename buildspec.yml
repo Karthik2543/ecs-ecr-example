@@ -10,8 +10,8 @@ phases:
     commands:
       - echo Build started
       - echo Building the docker image
-      - docker build -t sample-nodejs-image .
-      - docker tag yt-video-image:latest 533267372569.dkr.ecr.us-east-1.amazonaws.com/sample-nodejs-image:latest
+      - docker build -t yt-video-image .
+      - docker tag yt-video-image:latest 533267372569.dkr.ecr.us-east-1.amazonaws.com/yt-video-image:latest
 
 
   post_build:
@@ -20,7 +20,7 @@ phases:
      - echo pushing in to docker ECR...
      - docker push 992382546373.dkr.ecr.us-east-1.amazonaws.com/sample-nodejs-image:latest
      - echo Writing image definition file..
-     - printf '[{"name":"%s","imageUri":"%s"}]' "sample-nodejs-app" "533267372569.dkr.ecr.us-east-1.amazonaws.com/yt-video-image" > imagedefinitions.json
+     - printf '[{"name":"%s","imageUri":"%s"}]' "yt-video-cluster" "533267372569.dkr.ecr.us-east-1.amazonaws.com/yt-video-image" > imagedefinitions.json
 
 
 artifacts:
